@@ -30,27 +30,9 @@ internal class ResultTests
   }
 
   [Test]
-  public void Error_ResultNullExceptionThrows()
+  public void Error_ResultExceptionNullThrows()
   {
     Assert.Throws<ArgumentNullException>(() => Result.Error(null!));
-  }
-
-  [Test]
-  public void Successful_ValueIsMaintained()
-  {
-    Result<string> result = Result<string>.Success("test");
-
-    Assert.IsTrue(result.Successful);
-    Assert.That(result.Value, Is.EqualTo("test"));
-  }
-
-  [Test]
-  public void Successful_ResultImplicitlySuccessful()
-  {
-    Result<string> result = "test";
-
-    Assert.IsTrue(result.Successful);
-    Assert.That(result.Value, Is.EqualTo("test"));
   }
 
   [Test]

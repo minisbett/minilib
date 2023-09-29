@@ -81,14 +81,14 @@ public static class EnumerableExtensions
   }
 
   /// <summary>
-  /// Appends the specified values to the specified <see cref="IEnumerable{T}"/>.
+  /// Adds the specified values to the specified <see cref="IList{T}"/>.
   /// </summary>
   /// <typeparam name="T">The type.</typeparam>
-  /// <param name="enumerable">The input enumerable.</param>
-  /// <param name="values">The values to add to the enumerable.</param>
-  public static void AppendRange<T>(this IEnumerable<T> enumerable, params T[] values)
+  /// <param name="list">The input list.</param>
+  /// <param name="values">The values to add to the list.</param>
+  public static void AddRange<T>(this IList<T> list, params T[] values)
   {
     foreach (T value in values)
-      enumerable.Append(value);
+      list.Add(value);
   }
 }
