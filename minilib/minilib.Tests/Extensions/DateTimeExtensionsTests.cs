@@ -12,7 +12,7 @@ namespace minilib.Tests.Extensions;
 internal class DateTimeExtensionsTests
 {
   [Test]
-  public void Successful_Months()
+  public void Successful_MonthAliases()
   {
     DateTime january = 15.January(2023);
     DateTime february = 14.February(2024);
