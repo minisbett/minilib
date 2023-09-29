@@ -15,9 +15,9 @@ internal class TimeSpanExtensionsTests
   public void Successful_TimeAlisases()
   {
     TimeSpan milliseconds = 42.Milliseconds();
-    TimeSpan seconds = 43.Seconds();
-    TimeSpan minutes = 44.Minutes();
-    TimeSpan hours = 45.Hours();
+    TimeSpan seconds = 43L.Seconds();
+    TimeSpan minutes = 44.4f.Minutes();
+    TimeSpan hours = 45.5.Hours();
     TimeSpan days = 46.Days();
 
     Assert.That(milliseconds, Is.EqualTo(TimeSpan.FromMilliseconds(42)));
