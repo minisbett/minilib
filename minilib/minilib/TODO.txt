@@ -1,0 +1,13 @@
+﻿TO BE IMPLEMENTED:
+
+- MeasurementConstants class containing constants for converting between different units of measurement,
+  e.g. meters to feet, meters to miles, inches to centimeters, etc.
+
+- RegexConstants class containing constants for common regular expressions such as email addresses, phone numbers, etc.
+
+
+IDEAS:
+
+- Some "Retry" attribute where you can specify attempts and invertal between attempts, e.g. [Retry(3, 1000)] and it will
+  retry the method the attribute was assigned to 3 times with a 1 second interval between attempts. Potentially implement
+  this as an aspect using PostSharp or to avoid the dependency on PostSharp, implement it myself instead.
