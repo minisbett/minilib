@@ -15,7 +15,7 @@ internal class StringConstantsTests
   public void Successful_PrintableAscii()
   {
     string should = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
-    
+
     Assert.That(StringConstants.PRINTABLE_ASCII, Is.EqualTo(should));
   }
 }

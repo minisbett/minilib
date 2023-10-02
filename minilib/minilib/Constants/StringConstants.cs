@@ -13,6 +13,7 @@ public static class StringConstants
 {
   /// <summary>
   /// An array of all printable ASCII characters. (32-126)
+  /// """ !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"""
   /// </summary>
-  public static readonly char[] PRINTABLE_ASCII = Enumerable.Range(32, 126).Select(x => (char)x).ToArray();
+  public static readonly char[] PRINTABLE_ASCII = Enumerable.Range(32, 95).Select(x => (char)x).ToArray();
 }
