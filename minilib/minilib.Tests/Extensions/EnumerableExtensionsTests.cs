@@ -43,4 +43,48 @@ internal class EnumerableExtensionsTests
     enumerable.AddRange(2, 3, 4, 5);
     Assert.That(enumerable, Is.EqualTo(should));
   }
+
+  [Test]
+  public void Successful_EnumerableToString()
+  {
+    string should = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10";
+    IEnumerable<int> enumerable = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+    Assert.That(enumerable.ToString<int>(), Is.EqualTo(should));
+  }
+
+  [Test]
+  public void Successful_EnumerableOfEnumerablesToString()
+  {
+    string should = "(1, 2, 3), (4, 5, 6), (7, 8, 9)";
+    IEnumerable<IEnumerable<int>> enumerables = new int[][]
+    {
+      new int[] { 1, 2, 3 },
+      new int[] { 4, 5, 6 },
+      new int[] { 7, 8, 9 }
+    };
+
+    Assert.That(enumerables.ToString<int>(), Is.EqualTo(should));
+  }
+
+  [Test]
+  public void Successful_EnumerableOfEnumerablesOfEnumerablesToString()
+  {
+    string should = "[(1, 0), (0, 1)], [(0, 0), (1, 1)]";
+    IEnumerable<IEnumerable<IEnumerable<int>>> enumerables = new int[][][]
+    {
+      new int[][]
+      {
+        new int[] { 1, 0 },
+        new int[] { 0, 1 }
+      },
+      new int[][]
+      {
+        new int[] { 0, 0 },
+        new int[] { 1, 1 }
+      }
+    };
+
+    Assert.That(enumerables.ToString<int>(), Is.EqualTo(should));
+  }
 }

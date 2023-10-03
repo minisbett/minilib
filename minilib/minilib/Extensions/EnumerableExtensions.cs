@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -90,5 +91,48 @@ public static class EnumerableExtensions
   {
     foreach (T value in values)
       list.Add(value);
+  }
+
+  /// <summary>
+  /// Converts each element in the specified IEnumerable to a string and joins them with a comma-separator.
+  /// e.g.: 1, 2, 3, 4, 5
+  /// </summary>
+  /// <typeparam name="T">The element type.</typeparam>
+  /// <param name="enumerable">The enumerable to convert to a string.</param>
+  /// <returns>A comma-separated string representation of all elements in the enumerable.</returns>
+  public static string ToString<T>(this IEnumerable<T> enumerable) => string.Join(", ", enumerable);
+
+  /// <summary>
+  /// Converts each element in each sub-enumerable in the specified IEnumerable to a string and joins them with a comma-separator,
+  /// grouped using parentheses.
+  /// e.g.: (1, 2, 3), (4, 5, 6), (7, 8, 9)
+  /// </summary>
+  /// <typeparam name="T">The element type.</typeparam>
+  /// <param name="enumerables">The enumerable to convert to a string.</param>
+  /// <returns>A comma-separated string representation of all elements all sub-enumerables of the enumerable.</returns>
+  public static string ToString<T>(this IEnumerable<IEnumerable<T>> enumerables)
+  {
+    // If no sub-enumerables exist, return an empty string since otherwise it'd return "()".
+    if (!enumerables.Any())
+      return "";
+
+    return "(" + string.Join("), (", enumerables.Select(x => x.ToString<T>())) + ")";
+  }
+
+  /// <summary>
+  /// Converts each element in each sub-enumerable of each sub-enumerable in the specified IEnumerable to a string and joins them,
+  /// with a comma-separator, grouped by parantheses into groups which are grouped by brackets.
+  /// [(1, 0), (0, 1)], [(0, 0), (1, 1)]
+  /// </summary>
+  /// <typeparam name="T">The element type.</typeparam>
+  /// <param name="enumerables">The enumerable to convert to a string.</param>
+  /// <returns>A comma-separated string representation of all elements all sub-enumerables of the enumerable.</returns>
+  public static string ToString<T>(this IEnumerable<IEnumerable<IEnumerable<T>>> enumerables)
+  {
+    // If no sub-enumerables exist, return an empty string since otherwise it'd return "[]".
+    if (!enumerables.Any())
+      return "";
+    
+    return "[" + string.Join("], [", enumerables.Select(x => x.ToString<T>())) + "]";
   }
 }

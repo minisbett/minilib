@@ -45,7 +45,7 @@ internal class DependencContainerTests
   }
 
   [Test]
-  public void Success_InjectSingleObject()
+  public void Successful_InjectSingleObject()
   {
     TestClass1 testClass = new TestClass1();
     int number = 42;

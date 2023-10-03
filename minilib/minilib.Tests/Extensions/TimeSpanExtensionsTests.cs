@@ -22,8 +22,8 @@ internal class TimeSpanExtensionsTests
 
     Assert.That(milliseconds, Is.EqualTo(TimeSpan.FromMilliseconds(42)));
     Assert.That(seconds, Is.EqualTo(TimeSpan.FromSeconds(43)));
-    Assert.That(minutes, Is.EqualTo(TimeSpan.FromMinutes(44)));
-    Assert.That(hours, Is.EqualTo(TimeSpan.FromHours(45)));
+    Assert.That(minutes, Is.EqualTo(TimeSpan.FromMinutes(44.4f)));
+    Assert.That(hours, Is.EqualTo(TimeSpan.FromHours(45.5)));
     Assert.That(days, Is.EqualTo(TimeSpan.FromDays(46)));
   }
 }
